@@ -19,7 +19,7 @@ module.exports = {
 	entry: './src/index.js',
 
 	output: {
-		filename: 'statuc.bundle.js',
+		filename: 'static.bundle.js',
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/'
 	},

@@ -10,7 +10,6 @@
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js",
     "postbuild": "copyfiles index.html dist",
-    "local-server": "webpack --progress --colors --watch --define \"process.env.NODE_ENV\"=\"'local'\" --config=webpack.config.local.js",
     "dev-server": "webpack --progress --colors --watch --define \"process.env.NODE_ENV\"=\"'development'\" --config=webpack.config.dev.js",
     "prod-server": "webpack --progress --colors --watch --define \"process.env.NODE_ENV\"=\"'production'\" --config=webpack.config.prod.js"
   },

@@ -24,7 +24,6 @@ const darkerGrey = white.clone().darken(0.7);
 const darkestGrey = white.clone().darken(0.8);
 const darkerestGrey = white.clone().darken(0.9);
 
-red
 const red50 = Color('#FFEBEE')
 const red100 = Color('#FFCDD2')
 const red200 = Color('#EF9A9A')
