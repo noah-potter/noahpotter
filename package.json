@@ -5,7 +5,8 @@
     "node": "6.1.0"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "node app.js",
+    "dev": "webpack-dev-server",
     "lint": "eslint src",
     "prebuild": "rimraf dist",
     "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js",

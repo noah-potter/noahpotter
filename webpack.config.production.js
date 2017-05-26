@@ -19,7 +19,7 @@ module.exports = {
 	entry: './src/index.js',
 
 	output: {
-		filename: 'static.bundle.js',
+		filename: 'static/bundle.js',
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/'
 	},
@@ -75,12 +75,17 @@ module.exports = {
 		// }),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
-			filename: 'vendor.bundle.js',
+			filename: '/static/vendor.bundle.js',
 			minChunks(module, count) {
 				var context = module.context;
 				return context && context.indexOf('node_modules') >= 0;
 			}
 		}),
-		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
+		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify('production')
+			}
+		})
 	]
 };
