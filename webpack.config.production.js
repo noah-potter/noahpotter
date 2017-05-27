@@ -19,7 +19,7 @@ module.exports = {
 	entry: './src/index.js',
 
 	output: {
-		filename: 'static/bundle.js',
+		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: '/'
 	},
@@ -75,7 +75,7 @@ module.exports = {
 		// }),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
-			filename: '/static/vendor.bundle.js',
+			filename: '/vendor.bundle.js',
 			minChunks(module, count) {
 				var context = module.context;
 				return context && context.indexOf('node_modules') >= 0;

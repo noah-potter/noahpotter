@@ -639,7 +639,6 @@ class App extends Component {
     }
 
     resetCopyText = () => {
-        console.log('chaning')
         this.setState({copyText: 'Copy To Clipboard'})
     }
 
@@ -657,6 +656,21 @@ class App extends Component {
 
         let previousPictureUrl = previousPictureIndex != null ? selectedProject.getIn(['pictures', previousPictureIndex, 'url']) : null
         let nextPictureUrl = nextPictureIndex != null ? selectedProject.getIn(['pictures', nextPictureIndex, 'url']) : null
+
+        let previousPictureStyle
+        let nextPictureStyle
+
+        if (previousPictureUrl) {
+            previousPictureStyle = {
+                backgroundImage: `url(${previousPictureUrl})`
+            }
+        }
+
+        if (nextPictureUrl) {
+            nextPictureStyle = {
+                backgroundImage: `url(${nextPictureUrl})`
+            }
+        }
 
         let projectLink
 
@@ -773,7 +787,7 @@ class App extends Component {
                                     <div 
                                         className={classes.selectedProjectLeftPicture} 
                                         onClick={this.onLeftPictureClick}
-                                        style={{backgroundImage: `url("${previousPictureUrl}")`}}
+                                        style={previousPictureStyle}
                                     >
                                     </div>
                                 </div>
@@ -785,7 +799,7 @@ class App extends Component {
                                     <div 
                                         className={classes.selectedProjectRightPicture} 
                                         onClick={this.onRightPictureClick}
-                                        style={{backgroundImage: `url("${nextPictureUrl}")`}}
+                                        style={nextPictureStyle}
                                     >
                                     </div>
                                 </div>
