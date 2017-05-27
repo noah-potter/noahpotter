@@ -467,23 +467,23 @@ class App extends Component {
                     description: 'Radar is an internal tool used to manage the development of training modules that 8000+ employees rely on. Radar allows users to request trainings, helps training developers manage the lifecycle of trainings, easily targets complex, custom audiences, and automatically stays up-to-date as roles within the company get added and removed. As the target audience for Radar grew, I helped develop features that allowed us to replace a cumbersome excel document that 40+ sites used to manage hundreds of trainers and rooms. We also developed an automated authentication system as new types of users needed to be supported. ',
                     pictures: [
                         {
-                            url: '/app_images/radar/Development1.PNG',
+                            url: '/app_images/radar/development-1.png',
                             description: '',
                         },
                         {
-                            url: '/app_images/radar/Resource1.PNG',
+                            url: '/app_images/radar/resource-1.png',
                             description: '',
                         },
                         {
-                            url: '/app_images/radar/Resource2.PNG',
+                            url: '/app_images/radar/resource-2.png',
                             description: '',
                         },
                         {
-                            url: '/app_images/radar/Resource4.PNG',
+                            url: '/app_images/radar/resource-4.png',
                             description: '',
                         },
                         {
-                            url: '/app_images/radar/TrainingAssignment.PNG',
+                            url: '/app_images/radar/training-assignment.png',
                             description: '',
                         },
                     ],
@@ -574,22 +574,22 @@ class App extends Component {
                 // },
             }),
             pictures: Immutable.OrderedMap({
-                            'IMG_2378': 'lg',
+                            'bike-view': 'lg',
                                 // 'IMG_3381': '',
-                    'IMG_3501': 'xs',
-                'IMG_3835 (2)': '',
-                        'IMG_3958': 'md',
-                                'IMG_4095': 'xl',
+                    'pony': 'xs',
+                'selfie-yosemite': '',
+                        'climbing': 'md',
+                                'hot-air-balloons': 'xl',
                                 // 'IMG_4162': '',
-                'IMG_4307': '',
+                'selfie-beach': '',
                                 // 'IMG_4326': '',
                                 // 'IMG_4339': '',
-                                'IMG_4389': 'xl',
-                'IMG_4735': '',
-                        'IMG_4753': 'md',
-                            'IMG_4853': 'lg',
-                    'IMG_9338': 'xs',
-                'IMG_9628': '',
+                                'kayak': 'xl',
+                'snowboard': '',
+                        'snow-mountains': 'md',
+                            'tunnel': 'lg',
+                    'rock-tunnel': 'xs',
+                'climbing': '',
             })
         }
     }
@@ -845,7 +845,7 @@ class App extends Component {
                                 })
 
                                 return (
-                                    <div key={url} className={className} style={{backgroundImage: `url("/app_images/adventure/${url}.JPG")`}}>
+                                    <div key={url} className={className} style={{backgroundImage: `url("/app_images/adventure/${url}.jpg")`}}>
                                     </div>
                                 )
                             }).valueSeq()}
