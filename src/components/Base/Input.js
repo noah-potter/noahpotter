@@ -6,7 +6,7 @@ import debounce from 'lodash.debounce';
 
 import Tooltip from './Tooltip';
 
-import jss, { variables, colors } from '../jss';
+import jss, { variables, colors } from '../JSS';
 
 const styles = {
     inputContainer: {

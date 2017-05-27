@@ -4,7 +4,7 @@ import classNames from 'classnames';
 // Components
 
 // Styles
-import jss, { variables } from '../jss';
+import jss, { variables } from '../JSS';
 
 const styles = {
     container: {

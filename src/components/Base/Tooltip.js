@@ -6,7 +6,7 @@ import { Tooltip } from 'pui-react-tooltip';
 import { OverlayTrigger } from 'pui-react-overlay-trigger';
 
 // Styles
-import jss, { variables } from '../jss';
+import jss, { variables } from '../JSS';
 
 const styles = {
     popoverContainer: {

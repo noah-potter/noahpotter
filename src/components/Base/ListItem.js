@@ -1,5 +1,5 @@
 import React from 'react';
-import jss, { variables } from '../jss';
+import jss, { variables } from '../JSS';
 
 import CheckBox from './CheckBox';
 

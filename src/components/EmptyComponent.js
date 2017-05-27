@@ -11,7 +11,7 @@ import {
 
 
 // Styles
-import jss, { variables, colors } from '../jss';
+import jss, { variables, colors } from '../JSS';
 import VARS from '../VARS';
 
 const styles = {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import App from './App';
 
-import JSS, { variables } from './components/jss';
+import JSS, { variables } from './components/JSS';
 
 const styles = {
 	base: {

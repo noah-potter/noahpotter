@@ -7,7 +7,7 @@ import moment from 'app-moment';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Button from './components/Base/Button';
 
-import jss, { variables, colors } from './components/jss';
+import jss, { variables, colors } from './components/JSS';
 
 window.moment = moment;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Base from './Base';
 
-import JSS, { variables, colors } from './components/jss';
+import JSS, { variables, colors } from './components/JSS';
 
 const styles = {
 	'@global': {

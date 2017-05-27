@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import DropDownItems from './DropDownItems';
 import Tooltip from './Tooltip';
 
-import jss, { colors, variables } from '../jss';
+import jss, { colors, variables } from '../JSS';
 
 const styles = {
     dropDown: {

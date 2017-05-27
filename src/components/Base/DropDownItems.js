@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import onClickOutside from 'react-onclickoutside';
 
-import jss, { variables } from '../jss';
+import jss, { variables } from '../JSS';
 
 const styles = {
     dropDownMenu: {

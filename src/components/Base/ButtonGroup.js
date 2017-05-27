@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from './Button';
 
-import jss, { variables } from '../jss';
+import jss, { variables } from '../JSS';
 
 const styles = {
     buttonGroup: {

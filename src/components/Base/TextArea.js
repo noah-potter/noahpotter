@@ -4,7 +4,7 @@ import Textarea from 'react-textarea-autosize';
 import debounce from 'lodash.debounce';
 import classNames from 'classnames';
 
-import jss, { variables } from '../jss';
+import jss, { variables } from '../JSS';
 
 const styles = {
     textarea: {

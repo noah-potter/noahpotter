@@ -1,6 +1,6 @@
 import React from 'react';
 
-import jss, { variables } from '../jss';
+import jss, { variables } from '../JSS';
 import Tooltip from './Tooltip';
 
 /*
