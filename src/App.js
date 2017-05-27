@@ -601,7 +601,7 @@ class App extends Component {
                                 // 'IMG_3381': '',
                     'pony': 'xs',
                 'selfie-yosemite': '',
-                        'climbing': 'md',
+                        'circle-view': 'md',
                                 'hot-air-balloons': 'xl',
                                 // 'IMG_4162': '',
                 'selfie-beach': '',
