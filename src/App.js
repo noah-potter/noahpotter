@@ -467,23 +467,23 @@ class App extends Component {
                     description: 'Radar is an internal tool used to manage the development of training modules that 8000+ employees rely on. Radar allows users to request trainings, helps training developers manage the lifecycle of trainings, easily targets complex, custom audiences, and automatically stays up-to-date as roles within the company get added and removed. As the target audience for Radar grew, I helped develop features that allowed us to replace a cumbersome excel document that 40+ sites used to manage hundreds of trainers and rooms. We also developed an automated authentication system as new types of users needed to be supported. ',
                     pictures: [
                         {
-                            url: '/app_images/radar/Development1.png',
+                            url: '/app_images/radar/Development1.PNG',
                             description: '',
                         },
                         {
-                            url: '/app_images/radar/Resource1.png',
+                            url: '/app_images/radar/Resource1.PNG',
                             description: '',
                         },
                         {
-                            url: '/app_images/radar/Resource2.png',
+                            url: '/app_images/radar/Resource2.PNG',
                             description: '',
                         },
                         {
-                            url: '/app_images/radar/Resource4.png',
+                            url: '/app_images/radar/Resource4.PNG',
                             description: '',
                         },
                         {
-                            url: '/app_images/radar/TrainingAssignment.png',
+                            url: '/app_images/radar/TrainingAssignment.PNG',
                             description: '',
                         },
                     ],
@@ -845,7 +845,7 @@ class App extends Component {
                                 })
 
                                 return (
-                                    <div key={url} className={className} style={{backgroundImage: `url("/app_images/adventure/${url}.jpg")`}}>
+                                    <div key={url} className={className} style={{backgroundImage: `url("/app_images/adventure/${url}.JPG")`}}>
                                     </div>
                                 )
                             }).valueSeq()}
