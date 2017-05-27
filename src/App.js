@@ -15,6 +15,8 @@ const milestoneHeight = 190
 const pictureWidth = 130
 const pictureMargin = 16
 
+let windowHeight = window.innerHeight
+
 const styles = {
     app: {
         display: 'flex',
@@ -22,6 +24,7 @@ const styles = {
         flexDirection: 'column',
         position: 'relative',
         maxWidth: '100%',
+        fontFamily: 'Open Sans',
     },
     header: {
         position: 'fixed',
@@ -43,6 +46,14 @@ const styles = {
         alignItems: 'center',
         color: 'white',
         borderBottomRightRadius: '6px',
+        '@media (max-width: 620px)': {
+            paddingLeft: '4px',
+            paddingRight: '4px',
+            fontSize: '24px',
+        },
+        '@media (max-width: 440px)': {
+            fontSize: '18px',
+        },
     },
     headerEmail: {
         display: 'flex',
@@ -57,9 +68,18 @@ const styles = {
     emailText: {
         paddingLeft: '8px',
         paddingRight: '8px',
+        fontSize: '18px',
         display: 'flex',
         alignSelf: 'stretch',
         alignItems: 'center',
+        '@media (max-width: 620px)': {
+            paddingLeft: '4px',
+            paddingRight: '4px',
+            fontSize: '18px',
+        },
+        '@media (max-width: 440px)': {
+            fontSize: '14px',
+        },
     },
     headerBar: {
         display: 'flex',
@@ -69,14 +89,14 @@ const styles = {
     }, 
     body: {
         display: 'flex',
-        flex: '1 1 auto',
+        flex: '0 0 auto',
         flexDirection: 'column',
-        height: '100%',
+        // height: '100%',
     },
     splash: {
         display: 'flex',
         position: 'relative',
-        height: 'calc((100% - 12px)*.8)',
+        height: `calc(${.8*windowHeight}px - 12px)`,
         flex: '0 0 auto',
         overflow: 'hidden',
     },
@@ -103,7 +123,7 @@ const styles = {
         color: 'white',
         fontFamily: 'baloo bhaina',
         lineHeight: '63px',
-        paddingBottom: '10vh',
+        paddingBottom: `${.1 * windowHeight}px`,
         '@media (max-width: 620px)': {
             fontSize: '150px',
             left: '5%',
@@ -123,15 +143,16 @@ const styles = {
         extend: 'section',
         alignItems: 'center',
         fontSize: '32px',
-        minHeight: 'calc(20% - 24px)',
-        padding: '12px',
+        minHeight: `${.2 * windowHeight}px`,
+        paddingLeft: '12px',
+        paddingRight: '12px',
         flexDirection: 'column',
     },
     text: {
         display: 'flex',
         flex: '0 0 auto',
         alignItems: 'center',
-        lineHeight: '11px',
+        lineHeight: '12px',
         paddingLeft: '8px',
     },
     textItems: {
@@ -228,6 +249,7 @@ const styles = {
         paddingLeft: '12px',
         marginBottom: '18px',
         marginTop: '4px',
+        flexWrap: 'wrap',
     },
     projectTag: {
         background: variables.tagBackground,
@@ -236,6 +258,7 @@ const styles = {
         fontSize: '12px',
         lineHeight: '11px',
         marginRight: '4px',
+        marginBottom: '4px',
         borderRadius: '4px',
         color: 'white',
     },
@@ -602,7 +625,8 @@ class App extends Component {
     }
 
     selectPictureUrl = (url) => {
-        let index = this.state.projects.getIn([this.state.selectedProjectId, 'pictures']).indexOf(url)
+        let index = this.state.projects.getIn([this.state.selectedProjectId, 'pictures']).findIndex(v => v.get('url') == url)
+
         this.setState({projects: this.state.projects.setIn([this.state.selectedProjectId, 'pictureIndex'], index)})
     }
 
