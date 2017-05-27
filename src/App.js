@@ -86,7 +86,7 @@ const styles = {
         bottom: 0,
         left: 0,
         right: 0,
-        background: 'URL(/static/background3.png)',
+        background: 'URL(/background3.png)',
         backgroundSize: 'cover',
         backgroundPosition: '50% 50%',
     },
@@ -447,15 +447,15 @@ class App extends Component {
                     description: 'BreakerList helps athlete coaches quickly analyze their clients\' workouts. Athletes use the app to enter their workouts while at the gym and coaches can then use that information to prescribe custom regimens that are tailored to their athletes\' goals. It also features a regularly updated leaderboard that users can use to compare daily, weekly, and all-time stats.',
                     pictures: [
                         {
-                            url: '/static/app_images/breakerlist-exercise-mobile.png',
+                            url: '/app_images/breakerlist-exercise-mobile.png',
                             description: 'Exercises support complex configurations: custom order of exercises, multiple sets per exercise, and linked videos per set.'
                         },
                         {
-                            url: '/static/app_images/breakerlist-charts-mobile.png',
+                            url: '/app_images/breakerlist-charts-mobile.png',
                             description: 'Athletes and coaches can view historical data for specific exercises.'
                         },
                         {
-                            url: '/static/app_images/breakerlist-leaderboard-mobile.png',
+                            url: '/app_images/breakerlist-leaderboard-mobile.png',
                             description: 'The leaderboard\'s advanced filtering means there\'s a high likelihood that a user is #1 at something.'
                         },
                     ],
@@ -467,23 +467,23 @@ class App extends Component {
                     description: 'Radar is an internal tool used to manage the development of training modules that 8000+ employees rely on. Radar allows users to request trainings, helps training developers manage the lifecycle of trainings, easily targets complex, custom audiences, and automatically stays up-to-date as roles within the company get added and removed. As the target audience for Radar grew, I helped develop features that allowed us to replace a cumbersome excel document that 40+ sites used to manage hundreds of trainers and rooms. We also developed an automated authentication system as new types of users needed to be supported. ',
                     pictures: [
                         {
-                            url: '/static/app_images/radar/Development1.png',
+                            url: '/app_images/radar/Development1.png',
                             description: '',
                         },
                         {
-                            url: '/static/app_images/radar/Resource1.png',
+                            url: '/app_images/radar/Resource1.png',
                             description: '',
                         },
                         {
-                            url: '/static/app_images/radar/Resource2.png',
+                            url: '/app_images/radar/Resource2.png',
                             description: '',
                         },
                         {
-                            url: '/static/app_images/radar/Resource4.png',
+                            url: '/app_images/radar/Resource4.png',
                             description: '',
                         },
                         {
-                            url: '/static/app_images/radar/TrainingAssignment.png',
+                            url: '/app_images/radar/TrainingAssignment.png',
                             description: '',
                         },
                     ],
@@ -495,19 +495,19 @@ class App extends Component {
                     description: 'Booklava brings book clubs onto the internet. It supports creating, searching, and participating in book clubs. Booklava provides a structured framework for creating flexible, complex schedules for discussions and advanced management features for club owners.',
                     pictures: [
                         {
-                            url: '/static/app_images/booklava-calendar.png',
+                            url: '/app_images/booklava-calendar.png',
                             description: 'The calendar shows details about upcoming discussions and allows the user to manage their clubs and subscriptions.'
                         },
                         {
-                            url: '/static/app_images/booklava-club.png',
+                            url: '/app_images/booklava-club.png',
                             description: 'The homepage for a club displays the books they\'ve discussed, the discussion history for each book, and gives general club details.'
                         },
                         {
-                            url: '/static/app_images/booklava-discussion.png',
+                            url: '/app_images/booklava-discussion.png',
                             description: 'The discussion page allows users to post questions and monitor multiple discussions in real-time.'
                         },
                         {
-                            url: '/static/app_images/booklava-search.png',
+                            url: '/app_images/booklava-search.png',
                             description: 'The search page provides advanced search functions such as finding books currently in/planned for discussion and selecting a book for a club you own.'
                         },
                     ],
@@ -519,15 +519,15 @@ class App extends Component {
                     description: 'Mockups for a simple movie viewer. It allows a group of people to watch videos together and provides a prompt that users can use to select the next video.',
                     pictures: [
                         {
-                            url: '/static/app_images/movie-viewer-main.png',
+                            url: '/app_images/movie-viewer-main.png',
                             description: 'Main page for discussing the video',
                         },
                         {
-                            url: '/static/app_images/movie-viewer-description.png',
+                            url: '/app_images/movie-viewer-description.png',
                             description: 'Example page for viewing the current video',
                         },
                         {
-                            url: '/static/app_images/movie-viewer-vote.png',
+                            url: '/app_images/movie-viewer-vote.png',
                             description: 'Example voting section for next video',
                         },
                     ],
@@ -539,7 +539,7 @@ class App extends Component {
                     description: 'Starting a new hobby can be daunting, expect to encounter new terminology, new techniques, and a plethora of opportunity. Pure Progress is an attempt to provide a comprehensive guide to all hobbies that lays the groundwork for newcomers. Anyone can add content to Pure Progress. By enforcing guidelines, all hobbies have a narrow direction, giving students a clear learning path.',
                     pictures: [
                         {
-                            url: '/static/app_images/pureprogress-login.png',
+                            url: '/app_images/pureprogress-login.png',
                             description: 'Register page for Pure Progress',
                         },
                     ],
@@ -558,15 +558,15 @@ class App extends Component {
                 //     description: 'BreakerList helps athletic coaches quickly analyze their clients\' workouts. Athletes use the app to enter their workouts while at the gym, coaches can then use that information to prescribe custom regimens that are tailor to their athletes\' goals. It also features a regularly updated leaderboard that users use to compare daily, weekly, and all-time stats.',
                 //     pictures: [
                 //         {
-                //             url: '/static/app_images/breakerlist-exercise-mobile.png',
+                //             url: '/app_images/breakerlist-exercise-mobile.png',
                 //             description: 'Exercises support complex configurations: custom order of exercises, multiple sets per exercise, and linked videos per set.'
                 //         },
                 //         {
-                //             url: '/static/app_images/breakerlist-charts-mobile.png',
+                //             url: '/app_images/breakerlist-charts-mobile.png',
                 //             description: 'Athletes and coaches can view historical data for specific exercises.'
                 //         },
                 //         {
-                //             url: '/static/app_images/breakerlist-leaderboard-mobile.png',
+                //             url: '/app_images/breakerlist-leaderboard-mobile.png',
                 //             description: 'The leaderboard\'s advanced filtering means there\'s a high likelihood that a user is #1 at something.'
                 //         },
                 //     ],
@@ -845,7 +845,7 @@ class App extends Component {
                                 })
 
                                 return (
-                                    <div key={url} className={className} style={{backgroundImage: `url("/static/app_images/adventure/${url}.jpg")`}}>
+                                    <div key={url} className={className} style={{backgroundImage: `url("/app_images/adventure/${url}.jpg")`}}>
                                     </div>
                                 )
                             }).valueSeq()}

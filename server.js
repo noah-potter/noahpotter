@@ -1,16 +1,15 @@
+const port = (process.env.PORT || 3000)
 const path = require('path')
 const express = require('express')
 
-module.exports = {
-  app: function () {
-    const app = express()
-    const indexPath = path.join(__dirname, 'index.html')
+const app = express()
+const indexPath = path.join(__dirname, 'public', 'index.html')
 
-    app.use('/static', express.static(path.join(__dirname, 'static')))
-    app.use('/', express.static(path.join(__dirname, 'dist')))
-    
-    app.get('/', function (_, res) { res.sendFile(indexPath) })
+app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, 'public')))
 
-    return app
-  }
-}
+app.get('/', function (_, res) { res.sendFile(indexPath) })
+
+app.listen(port)
+
+console.log(`Listening at http://localhost:${port}`)

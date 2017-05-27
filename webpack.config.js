@@ -23,8 +23,8 @@ module.exports = {
 
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/'
+		path: path.resolve(__dirname, 'build'),
+		publicPath: '/build/'
 	},
 
 	resolve: {
@@ -79,6 +79,8 @@ module.exports = {
 
 		// respond to 404s with index.html
 		historyApiFallback: true,
+		publicPath: '/',
+		contentBase: './public',
 
 		// enable HMR on the server
 		hot: true,

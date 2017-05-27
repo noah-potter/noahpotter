@@ -5,12 +5,10 @@
     "node": "6.1.0"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "dev": "webpack-dev-server",
-    "lint": "eslint src",
-    "prebuild": "rimraf dist",
+    "prebuild": "rimraf build",
     "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js",
-    "postbuild": "copyfiles index.html dist"
   },
   "devDependencies": {
     "babel-loader": "6.2.10",
