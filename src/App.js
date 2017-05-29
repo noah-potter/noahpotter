@@ -1,26 +1,25 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import Immutable from 'immutable';
-import moment from 'app-moment';
 
 import CopyToClipboard from 'react-copy-to-clipboard';
 import Button from './components/Base/Button';
 
 import jss, { variables, colors } from './components/JSS';
 
-window.moment = moment;
-
 const milestoneHeight = 190
 const pictureWidth = 130
 const pictureMargin = 16
+const numPics = 12
 
 let windowHeight = window.innerHeight
 
 const styles = {
     app: {
         display: 'flex',
-        flex: '1 1 auto',
+        flex: '1 1 0px',
         flexDirection: 'column',
         position: 'relative',
         maxWidth: '100%',
@@ -38,7 +37,6 @@ const styles = {
     },
     headerName: {
         paddingLeft: '8px',
-        paddingRight: '8px',
         background: variables.headerColor,
         fontSize: '28px',
         height: '40px',
@@ -48,7 +46,10 @@ const styles = {
         borderBottomRightRadius: '6px',
         '@media (max-width: 620px)': {
             paddingLeft: '4px',
-            paddingRight: '4px',
+        },
+    },
+    headerNameText:{ 
+        '@media (max-width: 620px)': {
             fontSize: '24px',
         },
         '@media (max-width: 440px)': {
@@ -68,23 +69,22 @@ const styles = {
     emailText: {
         paddingLeft: '8px',
         paddingRight: '8px',
-        fontSize: '18px',
+        fontSize: '24px',
         display: 'flex',
         alignSelf: 'stretch',
         alignItems: 'center',
         '@media (max-width: 620px)': {
-            paddingLeft: '4px',
-            paddingRight: '4px',
-            fontSize: '18px',
+            fontSize: '22px',
         },
         '@media (max-width: 440px)': {
-            fontSize: '14px',
+            fontSize: '20px',
         },
     },
     headerBar: {
         display: 'flex',
         flex: '1 1 auto',
         height: '10px',
+        marginLeft: '-10px',
         background: variables.headerColor,
     }, 
     body: {
@@ -96,9 +96,12 @@ const styles = {
     splash: {
         display: 'flex',
         position: 'relative',
-        height: `calc(${.8*windowHeight}px - 12px)`,
+        minHeight: `calc(${.8 * windowHeight}px - 12px)`,
         flex: '0 0 auto',
         overflow: 'hidden',
+        '@media (max-height: 600px)': {
+            minHeight: `calc(${.7 * windowHeight}px - 12px)`,
+        },
     },
     splashImage: {
         position: 'absolute',
@@ -106,7 +109,7 @@ const styles = {
         bottom: 0,
         left: 0,
         right: 0,
-        background: 'URL(/background3.png)',
+        backgroundImage: 'url(/background3-lowres.png)',
         backgroundSize: 'cover',
         backgroundPosition: '50% 50%',
     },
@@ -147,6 +150,9 @@ const styles = {
         paddingLeft: '12px',
         paddingRight: '12px',
         flexDirection: 'column',
+        '@media (max-height: 600px)': {
+            minHeight: `calc(${.3 * windowHeight}px)`,
+        },
     },
     text: {
         display: 'flex',
@@ -160,6 +166,7 @@ const styles = {
         flex: '1 1 auto',
         flexWrap: 'wrap',
         justifyContent: 'center',
+        alignSelf: 'stretch',
     },
     dividingSection: {
         display: 'flex',
@@ -181,7 +188,6 @@ const styles = {
         paddingRight: '12px',
         background: variables.projectsBackground,
         '@media (max-width: 440px)': {
-            flexDirection: 'column',
             paddingRight: '0px',
         },
     },
@@ -193,14 +199,28 @@ const styles = {
         fontSize: '28px',
         fontWeight: 'bold',
         alignItems: 'center',
+        color: 'white',
+        '@media (max-width: 440px)': {
+            marginLeft: '12px',
+        },
     },
     projectList: {
         display: 'flex',
-        flex: '0 0 auto',
-        minWidth: '128px',
+        flex: '1 1 0px',
+        minWidth: '146px',
         marginLeft: '12px',
         flexDirection: 'column',
-        color: 'white',
+        '@media (max-width: 440px)': {
+            marginLeft: '0px',
+        },
+    },
+    projectItem: {
+        display: 'flex',
+        flexDirection: 'column',
+        '@media (max-width: 440px)': {
+            flexDirection: 'column',
+            paddingRight: '0px',
+        },
     },
     projectListItem: {
         display: 'flex',
@@ -211,9 +231,12 @@ const styles = {
         paddingRight: '8px',
         marginBottom: '12px',
         justifyContent: 'space-between',
-        '&:hover': {
-            background: '#F0F0F0',
-            color: variables.textBlack,
+        color: 'white',
+        '@media (hover)': {
+            '&:hover': {
+                background: '#F0F0F0',
+                color: variables.textBlack,
+            },
         },
     },
     selectedProjectListItem: {
@@ -232,6 +255,22 @@ const styles = {
         background: 'white',
         flexDirection: 'column',
         boxShadow: 'inset 0px 12px 8px -11px rgba(0, 0, 0, 0.66)',
+        '@media (max-width: 440px)': {
+            display: 'none',
+        },
+    },
+    selectedProjectInList: {
+        extend: 'project',
+        display: 'flex',
+        flex: '1 1 auto',
+        background: 'white',
+        flexDirection: 'column',
+        boxShadow: 'inset 0px 12px 8px -11px rgba(0, 0, 0, 0.66)',
+        display: 'none',
+        marginBottom: '8px',
+        '@media (max-width: 440px)': {
+            display: 'flex',
+        },
     },
     selectedProjectTitle: {
         display: 'flex',
@@ -374,6 +413,7 @@ const styles = {
         marginTop: '32px',
         marginBottom: '64px',
         marginRight: '-16px',
+        maxWidth: `${(pictureWidth + pictureMargin) * (numPics / 2)}px`,
     },
     picture: {
         borderRadius: '200px',
@@ -437,6 +477,11 @@ const styles = {
     copyToClipboardContainer: {
         display: 'flex',
     },
+    emailButton: {
+        display: 'flex',
+        alignSelf: 'stretch',
+        marginLeft: '8px',
+    },
 }
 
 const { classes } = jss.createStyleSheet(styles).attach()
@@ -461,7 +506,7 @@ class App extends Component {
             ]),
             backgroundIndex: 0,
             selectedProjectId: 'breakerlist',
-            copyText: 'Copy To Clipboard',
+            copyText: 'Copy Email To Clipboard',
             projects: Immutable.fromJS({
                 breakerlist: {
                     name: 'BreakerList',
@@ -622,6 +667,13 @@ class App extends Component {
 
     onSelectProject = (id) => {
         this.setState({selectedProjectId: id})
+
+        setTimeout(() => {
+            if (window.innerWidth <= 440) {
+                ReactDOM.findDOMNode(this.refs[id]).scrollIntoView()
+                window.scrollBy(0, -45)
+            }
+        }, 0)
     }
 
     selectPictureUrl = (url) => {
@@ -663,15 +715,15 @@ class App extends Component {
     }
 
     resetCopyText = () => {
-        this.setState({copyText: 'Copy To Clipboard'})
+        this.setState({copyText: 'Copy Email To Clipboard'})
     }
 
     onClickEmail = () => {
         this.setState({copyText: 'Copied!'})
     }
 
-    render() {
-        let selectedProject = this.state.projects.get(this.state.selectedProjectId)
+    renderProject = (projectId, inList) => {
+        let selectedProject = this.state.projects.get(projectId)
 
         let pictureCount = selectedProject.get('pictures').count()
         let pictureIndex = selectedProject.get('pictureIndex')
@@ -714,14 +766,77 @@ class App extends Component {
         }
 
         return (
+            <div className={inList ? classes.selectedProjectInList : classes.selectedProject}>
+                <div className={classes.selectedProjectTitle}>
+                    <div className={classes.selectedProjectTitleText}>
+                        {selectedProject.get('name')}
+                    </div>
+                    {projectLink}
+                </div>
+                <div className={classes.selectedProjectTags}>
+                    {selectedProject.get('tags').map(tag =>
+                        <div key={`tag_${tag}`} className={classes.projectTag}>
+                            {tag}
+                        </div>
+                    ).valueSeq()}
+                </div>
+                <div className={classes.selectedProjectDescription}>
+                    {selectedProject.get('description')}
+                </div>
+                <div className={classes.selectedProjectPictures}>
+                    <div className={classes.selectedProjectSidePictureContainer}>
+                        <div 
+                            className={classes.selectedProjectLeftPicture} 
+                            onClick={this.onLeftPictureClick}
+                            style={previousPictureStyle}
+                        >
+                        </div>
+                    </div>
+                    <div className={classes.selectedProjectCenterPictureContainer}>
+                        <div className={classes.selectedProjectCenterPicture} style={{backgroundImage: `url("${selectedProject.getIn(['pictures', pictureIndex, 'url'])}")`}}>
+                        </div>
+                    </div>
+                    <div className={classes.selectedProjectSidePictureContainer}>
+                        <div 
+                            className={classes.selectedProjectRightPicture} 
+                            onClick={this.onRightPictureClick}
+                            style={nextPictureStyle}
+                        >
+                        </div>
+                    </div>
+                </div>
+                <div className={classes.selectedPictureDescription}>
+                    {selectedProject.getIn(['pictures', pictureIndex, 'description'])}
+                </div>
+                <div className={classes.selectedProjectCounters}>
+                    {selectedProject.get('pictures').map(picture => {
+
+                        let active = selectedProject.getIn(['pictures', selectedProject.get('pictureIndex'), 'url']) == picture.get('url')
+
+                        let className = classNames({
+                            [classes.selectedProjectCounter]: !active,
+                            [classes.selectedProjectActiveCounter]: active,
+                        })
+
+                        return (
+                            <div key={`counter_${picture.get('url')}`} className={className} onClick={this.selectPictureUrl.bind(this, picture.get('url'))}>
+                            </div>
+                        )
+                    }).valueSeq()}
+                </div>
+            </div>
+        )
+    }
+
+    render() {
+
+        return (
             <div className={classes.app}>
                 <div className={classes.header}>
                     <div className={classes.headerName}>
-                        Noah Potter
-                    </div>
-                    <div className={classes.headerBar}>
-                    </div>
-                    <div className={classes.headerEmail}>
+                        <div className={classes.headerNameText}>
+                            Noah Potter
+                        </div>
                         <Button
                             noPadding
                             noMargin
@@ -729,6 +844,7 @@ class App extends Component {
                             popoverText={this.state.copyText}
                             noMinWidth
                             allowManualToggle={false}
+                            className={classes.emailButton}
                             popoverClassName={classes.copyToClipboardContainer}
                          >
                             <CopyToClipboard 
@@ -736,19 +852,21 @@ class App extends Component {
                                 onCopy={this.onClickEmail}
                              > 
                                 <div 
-                                    className={classes.emailText}
+                                    className={`material-icons ${classes.emailText}`}
                                     onMouseEnter={this.resetCopyText}
                                 >
-                                    noah.potter@outlook.com
+                                    email
                                 </div>
                             </CopyToClipboard>
                         </Button>
                     </div>
+                    <div className={classes.headerBar}>
+                    </div>
                 </div>
                 <div className={classes.body}>
                     <div className={classes.splash}>
-                        <div className={classes.splashImage}>
-                        </div>
+                        <img className={classes.splashImage} src='/background3.png'>
+                        </img>
                         <div className={classes.splashText}>
                             hello.
                         </div>
@@ -780,74 +898,23 @@ class App extends Component {
                                 })
 
                                 return (
-                                    <div key={projectId} className={className} onClick={this.onSelectProject.bind(this, projectId)}>
-                                        {project.get('name')}
-                                        <div className={`material-icons ${classes.arrowIcon}`}>
-                                            keyboard_arrow_right
+                                    <div key={projectId} className={classes.projectItem}>
+                                        <div 
+                                            className={className} 
+                                            onClick={this.onSelectProject.bind(this, projectId)}
+                                            ref={projectId}
+                                        >
+                                            {project.get('name')}
+                                            <div className={`material-icons ${classes.arrowIcon}`}>
+                                                keyboard_arrow_right
+                                            </div>
                                         </div>
+                                        {projectId == this.state.selectedProjectId ? this.renderProject(projectId, true) : null}
                                     </div>
                                 )
                             }).valueSeq()}
                         </div>
-                        <div className={classes.selectedProject}>
-                            <div className={classes.selectedProjectTitle}>
-                                <div className={classes.selectedProjectTitleText}>
-                                    {selectedProject.get('name')}
-                                </div>
-                                {projectLink}
-                            </div>
-                            <div className={classes.selectedProjectTags}>
-                                {selectedProject.get('tags').map(tag =>
-                                    <div key={`tag_${tag}`} className={classes.projectTag}>
-                                        {tag}
-                                    </div>
-                                ).valueSeq()}
-                            </div>
-                            <div className={classes.selectedProjectDescription}>
-                                {selectedProject.get('description')}
-                            </div>
-                            <div className={classes.selectedProjectPictures}>
-                                <div className={classes.selectedProjectSidePictureContainer}>
-                                    <div 
-                                        className={classes.selectedProjectLeftPicture} 
-                                        onClick={this.onLeftPictureClick}
-                                        style={previousPictureStyle}
-                                    >
-                                    </div>
-                                </div>
-                                <div className={classes.selectedProjectCenterPictureContainer}>
-                                    <div className={classes.selectedProjectCenterPicture} style={{backgroundImage: `url("${selectedProject.getIn(['pictures', pictureIndex, 'url'])}")`}}>
-                                    </div>
-                                </div>
-                                <div className={classes.selectedProjectSidePictureContainer}>
-                                    <div 
-                                        className={classes.selectedProjectRightPicture} 
-                                        onClick={this.onRightPictureClick}
-                                        style={nextPictureStyle}
-                                    >
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={classes.selectedPictureDescription}>
-                                {selectedProject.getIn(['pictures', pictureIndex, 'description'])}
-                            </div>
-                            <div className={classes.selectedProjectCounters}>
-                                {selectedProject.get('pictures').map(picture => {
-
-                                    let active = selectedProject.getIn(['pictures', selectedProject.get('pictureIndex'), 'url']) == picture.get('url')
-
-                                    let className = classNames({
-                                        [classes.selectedProjectCounter]: !active,
-                                        [classes.selectedProjectActiveCounter]: active,
-                                    })
-
-                                    return (
-                                        <div key={`counter_${picture.get('url')}`} className={className} onClick={this.selectPictureUrl.bind(this, picture.get('url'))}>
-                                        </div>
-                                    )
-                                }).valueSeq()}
-                            </div>
-                        </div>
+                        {this.renderProject(this.state.selectedProjectId, false)}
                     </div>
                     <div className={classes.dividingSection}>
                     </div>

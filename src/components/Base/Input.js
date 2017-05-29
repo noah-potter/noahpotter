@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 
-import debounce from 'lodash.debounce';
+// import debounce from 'lodash.debounce';
 
 import Tooltip from './Tooltip';
 
@@ -200,11 +200,14 @@ class Input extends React.Component {
     createNotifier(debounceTimeout) {
         if (debounceTimeout < 0) {
             this.notify = () => null;
-        } else if (debounceTimeout === 0) {
-            this.notify = this.props.onChange;
         } else {
-            this.notify = debounce(this.props.onChange, debounceTimeout);
+            
+        // } else if (debounceTimeout === 0) {
+            this.notify = this.props.onChange;
         }
+        // } else {
+        //     this.notify = debounce(this.props.onChange, debounceTimeout);
+        // }
     }
 
 
