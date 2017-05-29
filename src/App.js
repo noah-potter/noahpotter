@@ -207,7 +207,7 @@ const styles = {
     },
     projectList: {
         display: 'flex',
-        flex: '0 0 auto',
+        flex: '0 1 0px',
         minWidth: '146px',
         marginLeft: '12px',
         flexDirection: 'column',
@@ -253,7 +253,7 @@ const styles = {
     // Selected project
     selectedProject: {
         display: 'flex',
-        flex: '1 1 auto',
+        flex: '1 1 0px',
         background: 'white',
         flexDirection: 'column',
         boxShadow: 'inset 0px 12px 8px -11px rgba(0, 0, 0, 0.66)',
