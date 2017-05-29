@@ -43,6 +43,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         color: 'white',
+        zIndex: '2',
         borderBottomRightRadius: '6px',
         '@media (max-width: 620px)': {
             paddingLeft: '4px',
@@ -206,12 +207,13 @@ const styles = {
     },
     projectList: {
         display: 'flex',
-        flex: '1 1 0px',
+        flex: '0 0 auto',
         minWidth: '146px',
         marginLeft: '12px',
         flexDirection: 'column',
         '@media (max-width: 440px)': {
             marginLeft: '0px',
+            flex: '1 1 auto',
         },
     },
     projectItem: {
