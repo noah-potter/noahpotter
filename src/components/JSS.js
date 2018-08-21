@@ -602,6 +602,7 @@ export const variables = {
   centerPictureBackground: grey500.rgbString(),
   tagBackground: "rgb(74, 99, 90)",
   tagBorder: "1px solid rgb(34, 46, 45)",
+  techBackgroundColor: "#a9732f",
   background: "#131313",
   workBackground: white
     .clone()

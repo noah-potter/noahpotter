@@ -167,7 +167,6 @@ const styles = {
     display: "flex",
     flex: "0 0 auto",
     alignItems: "center",
-    lineHeight: "12px",
     paddingLeft: "8px"
   },
   textItems: {
@@ -253,10 +252,10 @@ const styles = {
   },
   selectedProjectListItem: {
     extend: "projectListItem",
-    background: "white",
+    background: "#f1f2f7",
     color: variables.textBlack,
     "&:hover": {
-      background: "white"
+      background: "#f1f2f7"
     }
   },
 
@@ -264,7 +263,7 @@ const styles = {
   selectedProject: {
     display: "flex",
     flex: "1 1 0px",
-    background: "white",
+    background: "#f1f2f7",
     flexDirection: "column",
     boxShadow: "inset 0px 12px 8px -11px rgba(0, 0, 0, 0.66)",
     "@media (max-width: 440px)": {
@@ -451,7 +450,8 @@ const styles = {
     fontSize: "18px",
     background: variables.footerBackground,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    flexWrap: "wrap"
   },
 
   link: {
@@ -504,6 +504,44 @@ const styles = {
     display: "flex",
     alignSelf: "stretch",
     marginLeft: "8px"
+  },
+  techSection: {
+    display: "flex",
+    marginBottom: "4rem",
+    alignSelf: "center"
+  },
+  techLevel: {
+    display: "flex",
+    flex: "1 1 auto",
+    flexDirection: "column",
+    border: `3px solid ${variables.techBackgroundColor}`,
+    borderRadius: "6px",
+    overflow: "hidden"
+  },
+  techLevelIcon: {
+    display: "flex",
+    color: "white",
+    background: variables.techBackgroundColor,
+    height: "76px",
+    alignItems: "center",
+    backgroundPosition: "14px",
+    backgroundSize: "41px",
+    backgroundRepeat: "no-repeat"
+  },
+  techListItems: {
+    display: "flex",
+    flexDirection: "column",
+    padding: "1rem 2rem",
+    fontSize: "24px"
+  },
+  techListItem: {
+    display: "flex"
+  },
+  techColumnSeparator: {
+    display: "flex",
+    flex: "1 1 0px",
+    justifyContent: "center",
+    width: "8rem"
   }
 };
 
@@ -958,6 +996,22 @@ class App extends Component {
     );
   };
 
+  renderTechColumn = ({ icon, tech } = {}) => {
+    return (
+      <div className={classes.techLevel}>
+        <div
+          className={`${classes.techLevelIcon}`}
+          style={{ backgroundImage: `url("${icon}")` }}
+        />
+        <div className={classes.techListItems}>
+          {tech.map(t => (
+            <div className={classes.techListItem}>{t}</div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   render() {
     return (
       <div className={classes.app}>
@@ -996,14 +1050,37 @@ class App extends Component {
           </div>
           <div className={classes.dividingSection} />
           <div className={classes.textSection}>
-            <div className={classes.separator} />
             <div className={classes.textItems}>
               <div className={classes.text}>
                 I'm Noah. I've been creating exciting frontends since 2014!
               </div>
               {/* <div className={classes.text}>Let's build something!</div> */}
             </div>
-            <div className={classes.separator} />
+          </div>
+          <div className={classes.techSection}>
+            {this.renderTechColumn({
+              icon: "app_images/level-icons/bars-4.png",
+              tech: [
+                "React",
+                "Redux",
+                "Redux Saga",
+                "Reselect",
+                "HTML",
+                "CSS/JSS",
+                "Webpack",
+                "C#"
+              ]
+            })}
+            <div className={classes.techColumnSeparator} />
+            {this.renderTechColumn({
+              icon: "app_images/level-icons/bars-3.png",
+              tech: ["Material UI", "Express", ".Net Core 2+"]
+            })}
+            <div className={classes.techColumnSeparator} />
+            {this.renderTechColumn({
+              icon: "app_images/level-icons/bars-2.png",
+              tech: ["Ruby on Rails", "Grunt", "RSpec"]
+            })}
           </div>
           <div className={classes.projectsSection}>
             <div className={classes.projectList}>
