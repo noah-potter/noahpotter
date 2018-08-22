@@ -1,34 +1,32 @@
-import React, { Component, PropTypes } from 'react';
-import Immutable from 'immutable';
-import { connect } from 'react-redux';
+import React, { Component, PropTypes } from "react";
+import Immutable from "immutable";
 
-import App from './App';
+import App from "./App";
 
-import JSS, { variables } from './components/JSS';
+import JSS, { variables } from "./components/JSS";
 
 const styles = {
-	base: {
-		display: 'flex',
-		flex: '1 1 auto',
-		maxWidth: '100%',
-	}
-}
+  base: {
+    display: "flex",
+    flex: "1 1 auto",
+    maxWidth: "100%"
+  }
+};
 
-const { classes } = JSS.createStyleSheet(styles).attach()
+const { classes } = JSS.createStyleSheet(styles).attach();
 
 class Base extends Component {
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
-	render() {
-		return (
-			<div className={classes.base}>
-				<App>
-				</App>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div className={classes.base}>
+        <App />
+      </div>
+    );
+  }
 }
 
-export default Base
+export default Base;

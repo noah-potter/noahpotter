@@ -25,7 +25,6 @@
     "null-loader": "0.1.1",
     "raw-loader": "0.5.1",
     "react-hot-loader": "3.0.0-beta.6",
-    "react-redux": "4.4.5",
     "style-loader": "0.12.2",
     "url-loader": "0.5.5",
     "webpack-dev-server": "2.2.0"
