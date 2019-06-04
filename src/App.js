@@ -212,7 +212,12 @@ const useStyles = makeStyles({
       MozOsxFontSmoothing: 'grayscale',
     },
   },
-  app: { display: 'flex' },
+  app: {
+    display: 'flex',
+    width: '100vw',
+    minHeight: '100vh',
+    position: 'relative',
+  },
   background: {
     position: 'absolute',
     top: 0,
@@ -227,8 +232,6 @@ const useStyles = makeStyles({
     objectFit: 'cover',
   },
   appBody: {
-    width: '100vw',
-    height: '100vh',
     display: 'grid',
     overflow: 'hidden',
     alignItems: 'stretch',
