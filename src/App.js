@@ -282,6 +282,11 @@ const useStyles = makeStyles({
       marginBottom: 64,
     },
   },
+  pageContent: {
+    background: '#0c1011d1',
+    border,
+    padding: theme.spacing(2),
+  },
   separator: {
     flex: '1 1 0px',
   },
@@ -306,15 +311,12 @@ const useStyles = makeStyles({
   tab: {
     padding: theme.spacing(2),
     justifyContent: 'flex-start',
-    fontSize: '14px',
-    transition: 'font-size 300ms',
     '&:not(:first-child)': {
       borderTop: border,
     },
   },
   activeTab: {
     fontWeight: 500,
-    fontSize: '22px',
     '&:hover': {
       background: 'transparent',
     },
@@ -322,6 +324,13 @@ const useStyles = makeStyles({
   },
   activePageTab: {
     background: 'rgba(208, 208, 208, 0.17)',
+  },
+  tabLabel: {
+    fontSize: '14px',
+    transition: 'font-size 300ms',
+  },
+  activeTabLabel: {
+    fontSize: '22px',
   },
   source: {
     maxWidth: '100%',
@@ -365,6 +374,21 @@ const useStyles = makeStyles({
     gridRow: 'auto / span 2',
     overflow: 'hidden',
   },
+  techContainer: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-end',
+    marginLeft: theme.spacing(4),
+    marginBottom: theme.spacing(-1),
+    marginRight: theme.spacing(-1),
+  },
+  tech: {
+    color: '#ffffffc2',
+    border,
+    padding: '3px 7px',
+    marginBottom: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
 })
 
 const Description = (props) => (
@@ -373,7 +397,7 @@ const Description = (props) => (
   </Typography>
 )
 
-const PageTab = ({ view, currentView, label, children, canOpen }) => {
+const PageTab = ({ view, currentView, label, children, canOpen, tech }) => {
   const classes = useStyles()
   const viewIsCurrent = view === currentView
 
@@ -392,7 +416,43 @@ const PageTab = ({ view, currentView, label, children, canOpen }) => {
         to={`/projects/${view}`}
         className={`${classes.tab} ${viewIsCurrent ? classes.activeTab : ''}`}
       >
-        {label}
+        <Box
+          display="flex"
+          flex="1 1 auto"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <div
+            className={`${classes.tabLabel} ${
+              viewIsCurrent ? classes.activeTabLabel : ''
+            }`}
+          >
+            {label}
+          </div>
+          <Fade in={canOpen && viewIsCurrent} timeout={700}>
+            <Box>
+              <Collapse in={canOpen && viewIsCurrent} timeout={200}>
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  className={classes.techContainer}
+                >
+                  {viewIsCurrent &&
+                    tech.map((_tech) => (
+                      <Box
+                        display="flex"
+                        alignItems="center"
+                        className={classes.tech}
+                        fontSize={12}
+                      >
+                        {_tech}
+                      </Box>
+                    ))}
+                </Box>
+              </Collapse>
+            </Box>
+          </Fade>
+        </Box>
       </Button>
       <Collapse in={canOpen && currentView === view} timeout={700}>
         <Box p={2} pt={0}>
@@ -598,6 +658,15 @@ export default function() {
                               <PageTab
                                 view="frontsteps"
                                 label="Frontsteps"
+                                tech={[
+                                  'React',
+                                  'Redux',
+                                  'Redux Saga',
+                                  'Reselect',
+                                  'JSS',
+                                  'Webpack 4',
+                                  'Material-UI',
+                                ]}
                                 currentView={match.params.view}
                                 canOpen={canOpen}
                               >
@@ -622,6 +691,17 @@ export default function() {
                               <PageTab
                                 view="dish"
                                 label="Dish"
+                                tech={[
+                                  'React',
+                                  'Redux',
+                                  'Redux Thunk',
+                                  'Reselect',
+                                  'JSS',
+                                  'Webpack',
+                                  'C#',
+                                  'ASP.NET WebApi',
+                                  'IIS 7',
+                                ]}
                                 currentView={match.params.view}
                                 canOpen={canOpen}
                               >
@@ -650,6 +730,14 @@ export default function() {
                               <PageTab
                                 view="booklava"
                                 label="Booklava"
+                                tech={[
+                                  'React',
+                                  'Redux',
+                                  'SCSS',
+                                  'Django',
+                                  'Python',
+                                  'Webpack',
+                                ]}
                                 currentView={match.params.view}
                                 canOpen={canOpen}
                               >
@@ -669,6 +757,14 @@ export default function() {
                               <PageTab
                                 view="breakerlist"
                                 label="BreakerList"
+                                tech={[
+                                  'React',
+                                  'Redux',
+                                  'SCSS',
+                                  'Ruby on Rails',
+                                  'Grunt',
+                                  'RSpec',
+                                ]}
                                 currentView={match.params.view}
                                 canOpen={canOpen}
                               >
@@ -694,7 +790,41 @@ export default function() {
                       />
                       <Route
                         path="/about-me"
-                        render={() => <Box className={classes.page} />}
+                        render={() => (
+                          <Box className={classes.page}>
+                            <Box className={classes.pageContent}>
+                              <Box mb={2}>
+                                <Typography color="textSecondary">
+                                  My name is Noah Potter, and I'm a software
+                                  developer! I specialize in highly dynamic web
+                                  applications. My core frontend software stack
+                                  for the last 3-4 years has been React, Redux,
+                                  Immutable.js, JSS and Jest. However, to
+                                  explore alternative designs, I'm experimenting
+                                  with Typescript, Mobx, Immer, React hooks,
+                                  styled-components, and FinalForm in my recent
+                                  projects.
+                                </Typography>
+                              </Box>
+                              <Box mb={2}>
+                                <Typography color="textSecondary">
+                                  I've also used many backend stacks to build
+                                  production ready applications such as Ruby on
+                                  Rails, Python/Django, ASP.NET Web API and
+                                  ASP.NET Core. Additionally, I've used
+                                  technologies such as RSpec, PostgreSQL, Grunt,
+                                  IIS 7, SQL Server, SSMS, and Docker to support
+                                  these backends.
+                                </Typography>
+                              </Box>
+                              <Box>
+                                <Typography color="textSecondary">
+                                  Have an interesting project? I'd love to chat!
+                                </Typography>
+                              </Box>
+                            </Box>
+                          </Box>
+                        )}
                       />
                       <Redirect to="/projects/frontsteps" />
                     </Switch>
